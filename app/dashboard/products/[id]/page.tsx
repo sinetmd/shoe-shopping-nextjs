@@ -1,7 +1,7 @@
+import { EditForm } from "@/app/components/dashboard/EditForm";
 import prisma from "@/lib/db";
 import { notFound } from "next/navigation";
 import React from "react";
-import { EditForm } from "../../EditForm";
 
 async function getData(productId: string) {
   const data = await prisma.product.findUnique({
