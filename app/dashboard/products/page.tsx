@@ -23,10 +23,10 @@ import {
 } from "@/components/ui/table";
 import prisma from "@/lib/db";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
-import { MoreHorizontal, PlusCircle, UserIcon } from "lucide-react";
+import { MoreHorizontal, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getData() {
   const data = await prisma.product.findMany({
@@ -43,6 +43,7 @@ const formatDate = (date: Date) => {
 };
 
 export default async function ProductsRoute() {
+  noStore();
   const data = await getData();
   return (
     <>

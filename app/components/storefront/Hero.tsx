@@ -10,6 +10,7 @@ import {
 import prisma from "@/lib/db";
 import Image from "next/image";
 import React from "react";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getData() {
   const data = await prisma.banner.findMany({
@@ -22,6 +23,7 @@ async function getData() {
 }
 
 export default async function Hero() {
+  noStore();
   const data = await getData();
   return (
     <Carousel>

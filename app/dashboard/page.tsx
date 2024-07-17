@@ -9,6 +9,7 @@ import prisma from "@/lib/db";
 import Chart from "../components/dashboard/Chart";
 import DashboardStats from "../components/dashboard/DashboardStats";
 import RecentSales from "../components/dashboard/RecentSales";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getData() {
   // calculate seven days
@@ -40,6 +41,7 @@ async function getData() {
 }
 
 export default async function Dashboard() {
+  noStore();
   const data = await getData();
   return (
     <>

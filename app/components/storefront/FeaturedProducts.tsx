@@ -1,6 +1,7 @@
 import prisma from "@/lib/db";
 import React, { Suspense } from "react";
 import ProductCard, { LoadingProductCard } from "./ProductCard";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getData() {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -37,6 +38,7 @@ export default async function FeaturedProducts() {
 }
 
 async function LoadFeaturedProducts() {
+  noStore();
   const data = await getData();
 
   return (
