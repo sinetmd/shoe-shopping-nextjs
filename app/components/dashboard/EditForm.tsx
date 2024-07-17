@@ -1,5 +1,6 @@
 "use client";
 
+import { editProduct } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -31,8 +32,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useFormState } from "react-dom";
-import { editProduct } from "../actions";
-import SubmitButton from "../components/SubmitButton";
+import SubmitButton from "../SubmitButton";
 
 interface iAppProps {
   data: {
